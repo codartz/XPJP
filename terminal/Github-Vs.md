@@ -3,7 +3,7 @@
 # ==========================================
 
 # 1. Ir para a pasta do projeto
-cd "C:\Users\Taís\OneDrive - SENAC-SC\senac"
+cd "C:\Users\Taís\OneDrive - SENAC-SC\SENAC"
 
 # 2. (Opcional) Ver a branch atual
 git branch

@@ -1,0 +1,116 @@
+# =========================================
+# 📘 EXERCÍCIOS DE PYTHON (ANNA DARA)
+# =========================================
+
+
+# =========================================
+# 🔹 QUESTÃO 1 — VALIDAÇÃO DE SENHA
+# =========================================
+
+valida = False
+
+while valida == False:
+    senha = input("Digite uma senha: ")
+
+    tem_numero = False
+    tem_maiuscula = False
+    tem_minuscula = False
+    tem_simbolo = False
+
+    for letra in senha:
+        if letra >= "0" and letra <= "9":
+            tem_numero = True
+        elif letra >= "A" and letra <= "Z":
+            tem_maiuscula = True
+        elif letra >= "a" and letra <= "z":
+            tem_minuscula = True
+        elif letra in "@#$":
+            tem_simbolo = True
+
+    if (
+        len(senha) >= 8 and
+        tem_numero and
+        tem_maiuscula and
+        tem_minuscula and
+        tem_simbolo and
+        " " not in senha
+    ):
+        valida = True
+        print("Senha válida!")
+    else:
+        print("Senha inválida. Tente novamente.")
+
+
+# =========================================
+# 🔹 QUESTÃO 2 — SISTEMA DE CADASTRO
+# =========================================
+
+nome = input("Digite seu nome: ")
+while " " in nome:
+    print("O nome não pode conter espaços.")
+    nome = input("Digite seu nome: ")
+
+usuario = input("Digite seu usuário: ")
+while " " in usuario:
+    print("O usuário não pode conter espaços.")
+    usuario = input("Digite seu usuário: ")
+
+senha = input("Digite sua senha: ")
+
+tem_numero = False
+
+for caractere in senha:
+    if caractere >= "0" and caractere <= "9":
+        tem_numero = True
+
+while " " in senha or tem_numero == False:
+    print("Senha inválida! Ela não pode ter espaços e deve conter um número.")
+    senha = input("Digite sua senha: ")
+
+    tem_numero = False
+    for caractere in senha:
+        if caractere >= "0" and caractere <= "9":
+            tem_numero = True
+
+print("\nCadastro realizado com sucesso!")
+print("Nome:", nome)
+print("Usuário:", usuario)
+print("Senha:", "*" * len(senha))
+
+
+# =========================================
+# 🔹 QUESTÃO 3 — GERAÇÃO DE ID
+# =========================================
+
+nome = input("Digite seu nome completo: ")
+
+tem_numero = False
+
+for letra in nome:
+    if letra >= "0" and letra <= "9":
+        tem_numero = True
+
+while len(nome.split()) < 2 or tem_numero == True:
+    print("Nome inválido!")
+
+    nome = input("Digite seu nome completo: ")
+
+    tem_numero = False
+    for letra in nome:
+        if letra >= "0" and letra <= "9":
+            tem_numero = True
+
+nome = " ".join(nome.split())
+
+partes = nome.split()
+
+primeiro_nome = partes[0]
+sobrenome = partes[-1]
+
+id_usuario = (
+    primeiro_nome[:2] +
+    sobrenome[-2:] +
+    str(len(nome.replace(" ", "")))
+)
+
+print("ID:", id_usuario.lower())

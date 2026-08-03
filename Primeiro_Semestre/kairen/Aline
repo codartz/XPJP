@@ -1,0 +1,29 @@
+# =========================================
+# 📘 EXERCÍCIOS DE PYTHON (ALINE)
+# =========================================
+
+
+# =========================================
+# 🔹 EXERCÍCIO 1 — VALIDAÇÃO DE SENHA
+# =========================================
+
+while True:
+    senha = input("Digite uma senha: ")
+
+    tem_tamanho = len(senha) >= 8
+    tem_numero = False
+    tem_maiuscula = False
+    tem_minuscula = False
+    tem_simbolo = False
+    tem_espaco = " " in senha
+
+    for caractere in senha:
+        if caractere.isdigit():
+            tem_numero = True
+        elif caractere.isupper():
+            tem_maiuscula = True
+        elif caractere.islower():
+            tem_minuscula = True
+        elif caractere in "@#!$":
+            tem_simbolo = True
+
